@@ -2,7 +2,6 @@ import paho.mqtt.client as mqtt
 from random import randint, getrandbits
 import time
 
-
 class Smartphone:
     def __init__(self):
         self.broker = 'mqtt.eclipseprojects.io'
@@ -15,11 +14,10 @@ def on_message(client, userdata, message):
     
     
     
-
+s = Smartphone()
 while True:
-    s = Smartphone()
     s.client.loop_start()
-    s.client.subscribe("TEMPERATUREspc")
+    s.client.subscribe("TELEMETRYspc")
     s.client.on_message = on_message
     time.sleep(30)
 

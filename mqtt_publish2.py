@@ -10,5 +10,5 @@ client.connect(mqttBroker)
 while True:
     randomNumber = randint(1, 200)
     client.publish("POS", randomNumber)
-    print(f"SUCCESS: \nPublished 'TEMPERATURE' : {randomNumber}")
+    print(f"Published 'TEMPERATURE': {randomNumber}")
     time.sleep(10)
