@@ -3,10 +3,9 @@ from random import randint
 import json
 import time
 
-
-
 class Telemetry:
     def __init__(self, battery, position):
+        
         # Inherited attriibutes
         self.battery = battery
         self.position = position
@@ -16,12 +15,10 @@ class Telemetry:
         self.client = mqtt.Client()
         self.client.connect(self.mqttBroker)
         
-        
-        
     def sendMessage(self):
         return self.client.publish("TELEMETRYspc",
-             payload=str({
-                'time': 'time_here',
+             payload=json.dumps({
+                'time': time.ctime(),
                'battery': self.battery,
                 'position': self.position,
             }))
@@ -32,9 +29,7 @@ class Telemetry:
     def getPos(self):
         self.position = randint(0, 100)
         
-            
-        
-            
+                  
 tel = Telemetry(10, 10)
 
 while True:

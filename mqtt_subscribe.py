@@ -13,7 +13,6 @@ def on_message(client, userdata, message):
     print(f"Received Mesage: \n{str(message.payload)}")
     
     
-    
 s = Smartphone()
 while True:
     s.client.loop_start()
